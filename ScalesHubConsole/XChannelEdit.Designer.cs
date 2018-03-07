@@ -46,6 +46,8 @@
             this.reg_exposure = new DevExpress.XtraEditors.TextEdit();
             this.reg_timeout = new DevExpress.XtraEditors.TextEdit();
             this.reg_address = new DevExpress.XtraEditors.TextEdit();
+            this.reg_decoder = new DevExpress.XtraEditors.TextEdit();
+            this.reg_data_frame = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -69,8 +71,8 @@
             this.lcAddress = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lcDescription = new DevExpress.XtraLayout.LayoutControlItem();
-            this.reg_decoder = new DevExpress.XtraEditors.TextEdit();
             this.lcDecoder = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lcDataFrame = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.reg_layout)).BeginInit();
             this.reg_layout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_type.Properties)).BeginInit();
@@ -87,6 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.reg_exposure.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_timeout.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_address.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reg_decoder.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reg_data_frame.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -110,8 +114,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcAddress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcDescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reg_decoder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcDecoder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcDataFrame)).BeginInit();
             this.SuspendLayout();
             // 
             // reg_layout
@@ -133,6 +137,7 @@
             this.reg_layout.Controls.Add(this.reg_timeout);
             this.reg_layout.Controls.Add(this.reg_address);
             this.reg_layout.Controls.Add(this.reg_decoder);
+            this.reg_layout.Controls.Add(this.reg_data_frame);
             this.reg_layout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reg_layout.Location = new System.Drawing.Point(0, 0);
             this.reg_layout.Name = "reg_layout";
@@ -145,7 +150,7 @@
             // 
             // reg_type
             // 
-            this.reg_type.Location = new System.Drawing.Point(104, 181);
+            this.reg_type.Location = new System.Drawing.Point(104, 205);
             this.reg_type.Name = "reg_type";
             this.reg_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -159,7 +164,7 @@
             // 
             // reg_active
             // 
-            this.reg_active.Location = new System.Drawing.Point(12, 84);
+            this.reg_active.Location = new System.Drawing.Point(12, 108);
             this.reg_active.Name = "reg_active";
             this.reg_active.Properties.Caption = "Активный канал";
             this.reg_active.Size = new System.Drawing.Size(317, 19);
@@ -168,7 +173,7 @@
             // 
             // reg_trigger_empty
             // 
-            this.reg_trigger_empty.Location = new System.Drawing.Point(104, 107);
+            this.reg_trigger_empty.Location = new System.Drawing.Point(104, 131);
             this.reg_trigger_empty.Name = "reg_trigger_empty";
             this.reg_trigger_empty.Properties.Mask.EditMask = "d";
             this.reg_trigger_empty.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -178,15 +183,15 @@
             // 
             // reg_description
             // 
-            this.reg_description.Location = new System.Drawing.Point(24, 239);
+            this.reg_description.Location = new System.Drawing.Point(24, 263);
             this.reg_description.Name = "reg_description";
-            this.reg_description.Size = new System.Drawing.Size(293, 183);
+            this.reg_description.Size = new System.Drawing.Size(293, 159);
             this.reg_description.StyleController = this.reg_layout;
             this.reg_description.TabIndex = 14;
             // 
             // reg_port_name
             // 
-            this.reg_port_name.Location = new System.Drawing.Point(116, 239);
+            this.reg_port_name.Location = new System.Drawing.Point(116, 263);
             this.reg_port_name.Name = "reg_port_name";
             this.reg_port_name.Size = new System.Drawing.Size(201, 20);
             this.reg_port_name.StyleController = this.reg_layout;
@@ -234,7 +239,7 @@
             // 
             // reg_data_bits
             // 
-            this.reg_data_bits.Location = new System.Drawing.Point(116, 287);
+            this.reg_data_bits.Location = new System.Drawing.Point(116, 311);
             this.reg_data_bits.Name = "reg_data_bits";
             this.reg_data_bits.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -249,7 +254,7 @@
             // 
             // reg_baud_rate
             // 
-            this.reg_baud_rate.Location = new System.Drawing.Point(116, 263);
+            this.reg_baud_rate.Location = new System.Drawing.Point(116, 287);
             this.reg_baud_rate.Name = "reg_baud_rate";
             this.reg_baud_rate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -274,7 +279,7 @@
             // 
             // reg_stop_bits
             // 
-            this.reg_stop_bits.Location = new System.Drawing.Point(116, 335);
+            this.reg_stop_bits.Location = new System.Drawing.Point(116, 359);
             this.reg_stop_bits.Name = "reg_stop_bits";
             this.reg_stop_bits.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -284,7 +289,7 @@
             // 
             // reg_parity
             // 
-            this.reg_parity.Location = new System.Drawing.Point(116, 311);
+            this.reg_parity.Location = new System.Drawing.Point(116, 335);
             this.reg_parity.Name = "reg_parity";
             this.reg_parity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -295,7 +300,7 @@
             // reg_exposure
             // 
             this.reg_exposure.EditValue = "";
-            this.reg_exposure.Location = new System.Drawing.Point(104, 131);
+            this.reg_exposure.Location = new System.Drawing.Point(104, 155);
             this.reg_exposure.Name = "reg_exposure";
             this.reg_exposure.Properties.Mask.EditMask = "d";
             this.reg_exposure.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -306,7 +311,7 @@
             // reg_timeout
             // 
             this.reg_timeout.EditValue = "";
-            this.reg_timeout.Location = new System.Drawing.Point(104, 155);
+            this.reg_timeout.Location = new System.Drawing.Point(104, 179);
             this.reg_timeout.Name = "reg_timeout";
             this.reg_timeout.Properties.Mask.EditMask = "d";
             this.reg_timeout.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -316,13 +321,32 @@
             // 
             // reg_address
             // 
-            this.reg_address.Location = new System.Drawing.Point(116, 359);
+            this.reg_address.Location = new System.Drawing.Point(116, 383);
             this.reg_address.Name = "reg_address";
             this.reg_address.Properties.Mask.EditMask = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d{1,5}";
             this.reg_address.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.reg_address.Size = new System.Drawing.Size(201, 20);
             this.reg_address.StyleController = this.reg_layout;
             this.reg_address.TabIndex = 20;
+            // 
+            // reg_decoder
+            // 
+            this.reg_decoder.Location = new System.Drawing.Point(104, 60);
+            this.reg_decoder.Name = "reg_decoder";
+            this.reg_decoder.Properties.MaxLength = 256;
+            this.reg_decoder.Size = new System.Drawing.Size(225, 20);
+            this.reg_decoder.StyleController = this.reg_layout;
+            this.reg_decoder.TabIndex = 6;
+            // 
+            // reg_data_frame
+            // 
+            this.reg_data_frame.Location = new System.Drawing.Point(104, 84);
+            this.reg_data_frame.Name = "reg_data_frame";
+            this.reg_data_frame.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.reg_data_frame.Size = new System.Drawing.Size(225, 20);
+            this.reg_data_frame.StyleController = this.reg_layout;
+            this.reg_data_frame.TabIndex = 21;
             // 
             // layoutControlGroup1
             // 
@@ -341,7 +365,8 @@
             this.lcTimeout,
             this.lcType,
             this.tabbedControlGroup1,
-            this.lcDecoder});
+            this.lcDecoder,
+            this.lcDataFrame});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(341, 472);
             this.layoutControlGroup1.TextVisible = false;
@@ -395,14 +420,14 @@
             // simpleSeparator1
             // 
             this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.Location = new System.Drawing.Point(0, 167);
+            this.simpleSeparator1.Location = new System.Drawing.Point(0, 191);
             this.simpleSeparator1.Name = "simpleSeparator1";
             this.simpleSeparator1.Size = new System.Drawing.Size(321, 2);
             // 
             // lcTriggerEmpty
             // 
             this.lcTriggerEmpty.Control = this.reg_trigger_empty;
-            this.lcTriggerEmpty.Location = new System.Drawing.Point(0, 95);
+            this.lcTriggerEmpty.Location = new System.Drawing.Point(0, 119);
             this.lcTriggerEmpty.Name = "lcTriggerEmpty";
             this.lcTriggerEmpty.OptionsToolTip.ToolTip = "Минимальный вес, при достижении которого, весы считаются свободными";
             this.lcTriggerEmpty.Size = new System.Drawing.Size(321, 24);
@@ -412,7 +437,7 @@
             // lcExposure
             // 
             this.lcExposure.Control = this.reg_exposure;
-            this.lcExposure.Location = new System.Drawing.Point(0, 119);
+            this.lcExposure.Location = new System.Drawing.Point(0, 143);
             this.lcExposure.Name = "lcExposure";
             this.lcExposure.OptionsToolTip.ToolTip = "Временной интервал, необходимый для принятия веса";
             this.lcExposure.Size = new System.Drawing.Size(321, 24);
@@ -422,7 +447,7 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.reg_active;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(321, 23);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -431,7 +456,7 @@
             // lcTimeout
             // 
             this.lcTimeout.Control = this.reg_timeout;
-            this.lcTimeout.Location = new System.Drawing.Point(0, 143);
+            this.lcTimeout.Location = new System.Drawing.Point(0, 167);
             this.lcTimeout.Name = "lcTimeout";
             this.lcTimeout.OptionsToolTip.IconToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.lcTimeout.OptionsToolTip.ToolTip = "Временной интервал, по истечении котрого, при осутствии сигнала с последовательно" +
@@ -443,7 +468,7 @@
             // lcType
             // 
             this.lcType.Control = this.reg_type;
-            this.lcType.Location = new System.Drawing.Point(0, 169);
+            this.lcType.Location = new System.Drawing.Point(0, 193);
             this.lcType.Name = "lcType";
             this.lcType.Size = new System.Drawing.Size(321, 24);
             this.lcType.Text = "Тип канала:";
@@ -451,11 +476,11 @@
             // 
             // tabbedControlGroup1
             // 
-            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 193);
+            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 217);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
             this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
             this.tabbedControlGroup1.SelectedTabPageIndex = 1;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(321, 233);
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(321, 209);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
             this.layoutControlGroup3});
@@ -472,7 +497,7 @@
             this.lcAddress});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(297, 187);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(297, 163);
             this.layoutControlGroup3.Text = "Настройки";
             // 
             // emptySpaceItem1
@@ -480,7 +505,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 144);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(297, 43);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(297, 19);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lcPortName
@@ -544,7 +569,7 @@
             this.lcDescription});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(297, 187);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(297, 163);
             this.layoutControlGroup2.Text = "Примечание";
             // 
             // lcDescription
@@ -552,20 +577,11 @@
             this.lcDescription.Control = this.reg_description;
             this.lcDescription.Location = new System.Drawing.Point(0, 0);
             this.lcDescription.Name = "lcDescription";
-            this.lcDescription.Size = new System.Drawing.Size(297, 187);
+            this.lcDescription.Size = new System.Drawing.Size(297, 163);
             this.lcDescription.Text = "Примечание:";
             this.lcDescription.TextLocation = DevExpress.Utils.Locations.Top;
             this.lcDescription.TextSize = new System.Drawing.Size(0, 0);
             this.lcDescription.TextVisible = false;
-            // 
-            // reg_decoder
-            // 
-            this.reg_decoder.Location = new System.Drawing.Point(104, 60);
-            this.reg_decoder.Name = "reg_decoder";
-            this.reg_decoder.Properties.MaxLength = 256;
-            this.reg_decoder.Size = new System.Drawing.Size(225, 20);
-            this.reg_decoder.StyleController = this.reg_layout;
-            this.reg_decoder.TabIndex = 6;
             // 
             // lcDecoder
             // 
@@ -577,6 +593,16 @@
             this.lcDecoder.Size = new System.Drawing.Size(321, 24);
             this.lcDecoder.Text = "Декодер:";
             this.lcDecoder.TextSize = new System.Drawing.Size(89, 13);
+            this.lcDecoder.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.OnlyInCustomization;
+            // 
+            // lcDataFrame
+            // 
+            this.lcDataFrame.Control = this.reg_data_frame;
+            this.lcDataFrame.Location = new System.Drawing.Point(0, 72);
+            this.lcDataFrame.Name = "lcDataFrame";
+            this.lcDataFrame.Size = new System.Drawing.Size(321, 24);
+            this.lcDataFrame.Text = "Декодер весов:";
+            this.lcDataFrame.TextSize = new System.Drawing.Size(89, 13);
             // 
             // XChannelEdit
             // 
@@ -609,6 +635,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.reg_exposure.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_timeout.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_address.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reg_decoder.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reg_data_frame.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -632,8 +660,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcAddress)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcDescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reg_decoder.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcDecoder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcDataFrame)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -682,5 +710,7 @@
         private DevExpress.XtraLayout.LayoutControlItem lcAddress;
         private DevExpress.XtraEditors.TextEdit reg_decoder;
         private DevExpress.XtraLayout.LayoutControlItem lcDecoder;
+        private DevExpress.XtraEditors.ComboBoxEdit reg_data_frame;
+        private DevExpress.XtraLayout.LayoutControlItem lcDataFrame;
     }
 }

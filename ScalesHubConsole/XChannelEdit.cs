@@ -62,6 +62,16 @@ namespace ScalesHubConsole
 
         protected void Setup(int id)
         {
+            var decoders = new List<string>();
+            foreach(var module in Program.Plugins.DecoderModules)
+            {
+                if (decoders.Contains(module.Metadata.Name)) continue;
+                decoders.Add(module.Metadata.Name);
+            }
+            ///заполнение combobox
+            reg_data_frame.Properties.Items.AddRange(decoders);//new string[]{ "НВТ-1", "НВТ-3", "НВТ-9" });
+            //reg_data_frame.EditValueChanging += (sender, e) => SetupDecoder(Convert.ToString(e.NewValue));
+
             source.Add(ScalesChannelViewModel.LoadFromDb(id));
 
             reg_stop_bits.Properties.Items.AddEnum<System.IO.Ports.StopBits>();
@@ -70,6 +80,8 @@ namespace ScalesHubConsole
             reg_code.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", source, "Code", true, DataSourceUpdateMode.OnValidation));
             reg_name.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", source, "Name", true, DataSourceUpdateMode.OnValidation));
             reg_decoder.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", source, "Decoder", true, DataSourceUpdateMode.OnValidation));
+            reg_data_frame.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", source, "Decoder", true, DataSourceUpdateMode.OnValidation));
+
             reg_active.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", source, "Active", true, DataSourceUpdateMode.OnValidation));
             reg_description.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", source, "Description", true, DataSourceUpdateMode.OnValidation));
             reg_trigger_empty.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", source, "TriggerEmpty", true, DataSourceUpdateMode.OnValidation));
@@ -101,6 +113,10 @@ namespace ScalesHubConsole
                 ViewModel.Update();
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             };
+        }
+        protected void SetupDecoder(string decoder)
+        {
+
         }
     }
 }
