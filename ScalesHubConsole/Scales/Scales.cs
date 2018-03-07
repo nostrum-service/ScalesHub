@@ -4,6 +4,7 @@ using System.Linq;
 using Nostrum.ScalesComponent.Serial;
 using System.Text.RegularExpressions;
 using System.Text;
+using System.Windows.Forms;
 using System.Globalization;
 using ScalesHubConsole;
 using System.Net.Sockets;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.IO;
 using NLog;
+using ScalesHubPlugin;
 
 namespace Nostrum.ScalesComponent
 {
@@ -38,7 +40,6 @@ namespace Nostrum.ScalesComponent
         event ScalesEventDataReceived OnScalesEventDataReceived;
         event ScalesEventRawDataReceived OnScalesEventRawDataReceived;
         event ScalesEventConnectionStatusChanged OnScalesConnectionStatusChanged;
-
         String Id { get; set; }
 
         void Start();
@@ -61,11 +62,10 @@ namespace Nostrum.ScalesComponent
 
         TimeSpan Exposure { get; set; }
     }
-
     public class Scales : IScales
     {
         private SerialPortManager portManager;
-        private NxDataFrame nxFrame;
+        private IDataFrame nxFrame;
 
         protected System.Threading.Timer checker = null;
         TimeSpan checkerSpan = TimeSpan.FromMilliseconds(500);
@@ -75,10 +75,10 @@ namespace Nostrum.ScalesComponent
         public event ScalesEventDataReceived OnScalesEventDataReceived;
         public event ScalesEventRawDataReceived OnScalesEventRawDataReceived;
         public event ScalesEventConnectionStatusChanged OnScalesConnectionStatusChanged;
-
-        public Scales()
-        {
-            nxFrame = new NxDataFrame();
+        //добавить в конструктор параметр декодера
+        public Scales(IDataFrame decoder)
+        {            
+            nxFrame = decoder;
             portManager = new SerialPortManager();
             checker = new System.Threading.Timer((unused) => checkOnlineStatus(), null, System.Threading.Timeout.Infinite, (int)checkerSpan.TotalMilliseconds);
             portManager.NewSerialDataRecieved += portManager_NewSerialDataRecieved;
@@ -314,13 +314,12 @@ namespace Nostrum.ScalesComponent
             set { hExposure = value; }
         }
     }
-
     public class TcpScales : IScales
     {
         private TcpClient client;
         private NetworkStream netStream;
 
-        private NxDataFrame nxFrame;
+        private IDataFrame nxFrame;
 
         protected System.Threading.Timer checker = null;
         TimeSpan checkerSpan = TimeSpan.FromMilliseconds(500);
@@ -331,9 +330,9 @@ namespace Nostrum.ScalesComponent
         public event ScalesEventRawDataReceived OnScalesEventRawDataReceived;
         public event ScalesEventConnectionStatusChanged OnScalesConnectionStatusChanged;
 
-        public TcpScales()
+        public TcpScales(IDataFrame decoder)
         {
-            nxFrame = new NxDataFrame();
+            nxFrame = decoder;
             checker = new System.Threading.Timer((unused) => checkOnlineStatus(), null, System.Threading.Timeout.Infinite, (int)checkerSpan.TotalMilliseconds);
         }
 
@@ -386,7 +385,19 @@ namespace Nostrum.ScalesComponent
             bool decoded = false;
             try
             {
+                //LogManager.GetLogger(Application.ProductName).Debug("binary: " + string.Join(" ", data.Select(x => Convert.ToString(x, 2))));
+                //LogManager.GetLogger(Application.ProductName).Debug("hex: " + BitConverter.ToString(data));
+                //LogManager.GetLogger(Application.ProductName).Debug("decimal: " + System.Text.Encoding.Default.GetString(data));
+
+                //LogManager.GetCurrentClassLogger().Trace
+                //    (
+                //        "binary: " + string.Join(" ", data.Select(x=>Convert.ToString(x,2)))
+                //    );
+                //LogManager.GetCurrentClassLogger().Trace("hex:" + System.Text.Encoding.Default.GetString(data));
+                //LogManager.GetCurrentClassLogger().Trace("decimal:" + BitConverter.ToString(data));
                 decoded = nxFrame.Decode(data);
+                //LogManager.GetLogger(Application.ProductName).Debug("decoded weight: " + nxFrame.Weight);
+                //LogManager.GetCurrentClassLogger().Trace("decoded weight: " + nxFrame.Weight);
             }
             catch (Exception ex)
             {
@@ -399,7 +410,7 @@ namespace Nostrum.ScalesComponent
             {
                 bool bWeightChanged = hWeight != nxFrame.Weight;
                 hWeight = nxFrame.Weight;
-
+                System.Diagnostics.Trace.TraceError("Декодировано: вес = {0}", hWeight);
                 if (OnScalesEventDataReceived != null)
                 {
                     try
@@ -527,7 +538,7 @@ namespace Nostrum.ScalesComponent
                 if (client.Connected)
                 {
                     LogManager.GetCurrentClassLogger().Info(string.Format("Соединение {0} установлено", hSettings.Address));
-
+                    //client.ReceiveBufferSize = 8;//принимать по 8 знаков
                     byte[] readBuffer = new byte[client.ReceiveBufferSize];
 
                     while (netStream.CanRead && !cancellationToken.IsCancellationRequested)
