@@ -12,6 +12,7 @@ using LiteDB;
 using NLog;
 using Nostrum.ScalesComponent;
 using Nostrum.ScalesComponent.Serial;
+using ScalesHubPlugin;
 
 namespace ScalesHubConsole
 {
@@ -243,7 +244,7 @@ namespace ScalesHubConsole
         protected decimal hMeasureValue;
 
         protected ChState hState;
-        protected Nostrum.ScalesComponent.NxDeviceState hDeviceState;
+        protected NxDeviceState hDeviceState;
 
 
         public int Id
@@ -339,7 +340,7 @@ namespace ScalesHubConsole
             }
         }
 
-        public Nostrum.ScalesComponent.NxDeviceState DeviceState
+        public NxDeviceState DeviceState
         {
             get { return hDeviceState; }
             private set 
