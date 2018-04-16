@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using NLog;
 using Nostrum.ScalesComponent;
 using Nostrum.ScalesComponent.Serial;
+using ScalesHubPlugin;
 
 namespace ScalesHubConsole
 {
@@ -42,9 +43,52 @@ namespace ScalesHubConsole
                 LogManager.GetCurrentClassLogger().Error(String.Format("Ошибка создания сервиса [{0}]", serviceType.FullName), ex);
             }
         }
-
+        ///// <summary>
+        ///// Генерирует декодер для весов 
+        ///// </summary>
+        ///// <param name="decoderType"></param>
+        ///// <returns></returns>
+        //NxDataFrame GenerateScaleDecoder(string decoderType)
+        //{
+        //    NxDataFrame scaleDecoder = null;
+        //    switch (decoderType)
+        //    {
+        //        case "НВТ-1":
+        //            scaleDecoder = new DataFrameNVT1();
+        //            break;
+        //        case "НВТ-3":
+        //            scaleDecoder = new DataFrameNVT3();
+        //            break;
+        //        case "НВТ-9":
+        //            scaleDecoder = new DataFrameNVT9();
+        //            break;
+        //        default:
+        //            scaleDecoder = new NxDataFrame();
+        //            break;
+        //    }
+        //    return scaleDecoder;
+        //}
+        ///// <summary>
+        ///// Получение декодера через атрибут
+        ///// </summary>
+        ///// <param name="scaleType"></param>
+        ///// <returns></returns>
+        //NxDataFrame GetDecoderByAttribute(Type scaleType)
+        //{
+        //    //получение атрибута
+        //    var decoderAttribute = scaleType.GetCustomAttributes(typeof(DecoderAttribute), true).FirstOrDefault();
+        //    if (decoderAttribute != null)
+        //    {
+        //        var decoderName = (decoderAttribute as DecoderAttribute).DecoderName;
+        //        return GenerateScaleDecoder(decoderName);                
+        //    }
+        //    return null;
+        //}
         public IScales SetupSource(ScalesDescriptor sd)
         {
+            //определение декодера по настройкам ScalesDescriptor
+            IDataFrame decoder = Program.Plugins.DecoderModules.Where(x => x.Metadata.Name == sd.Decoder).FirstOrDefault()?.Value;//GenerateScaleDecoder(sd.Decoder);
+
             if (sd.StreamType == "serial")
             {
                 SerialPortSettings settings = JsonConvert.DeserializeObject<SerialPortSettings>(sd.Settings);
@@ -55,12 +99,13 @@ namespace ScalesHubConsole
                     LogManager.GetLogger(Application.ProductName).Info(string.Format("Настройка источника {0}", sd.Settings));
 
                     if (settings.PortName.StartsWith("MAN"))
-                    {
-                        ManualScales tmp = new ManualScales();
+                    {                        
+                        ManualScales tmp = new ManualScales(); 
                         tmp.Id = settings.PortName;
                         tmp.Settings = settings;
                         tmp.Exposure = TimeSpan.FromMilliseconds(sd.Exposure);
                         tmp.Timeout = TimeSpan.FromMilliseconds(sd.Timeout);
+                        //var attributes = tmp.GetType().GetCustomAttributes(typeof(DecoderAttribute), true); 
                         scales = tmp;
 
                         if (Program.mainForm != null)
@@ -82,7 +127,12 @@ namespace ScalesHubConsole
                     {
                         try
                         {
-                            Scales tmp = new Scales();
+                            //var tempDecoder = GetDecoderByAttribute(typeof(Nostrum.ScalesComponent.Scales));
+                            //if (decoder?.GetType() != tempDecoder?.GetType())
+                            //{
+                            //    //throw new Exception();
+                            //}    
+                            Nostrum.ScalesComponent.Scales tmp = new Nostrum.ScalesComponent.Scales(decoder);
                             tmp.Id = settings.PortName;
                             tmp.Settings = settings;
                             tmp.Exposure = TimeSpan.FromMilliseconds(sd.Exposure);
@@ -124,7 +174,12 @@ namespace ScalesHubConsole
 
                     try
                     {
-                        TcpScales tmp = new TcpScales();
+                        //var tempDecoder = GetDecoderByAttribute(typeof(TcpScales));
+                        //if (decoder?.GetType() != tempDecoder?.GetType())
+                        //{
+                        //    //throw new Exception();
+                        //}
+                        TcpScales tmp = new TcpScales(decoder);
                         tmp.Id = settings.Address;
                         tmp.Settings = settings;
                         tmp.Exposure = TimeSpan.FromMilliseconds(sd.Exposure);

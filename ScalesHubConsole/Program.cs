@@ -12,11 +12,16 @@ using System.Threading;
 using System.Text;
 using System.Net;
 using NLog;
+using ScalesHubPlugin;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
+using System.IO;
 
 namespace ScalesHubConsole
 {
     static class Program
     {
+        public static NxDecoderPlugin Plugins;
         public static String dbPath = "";
 
         public static List<Action<string, string>> subscribers = new List<Action<string, string>>();
@@ -70,8 +75,43 @@ namespace ScalesHubConsole
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013");
 
+            try
+            {
+                Plugins = new NxDecoderPlugin();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine(ex.ToString());
+            }
+
             Application.Run(mainForm = new XMainForm());
         }
 
+    }
+    /// <summary>
+    /// Класс импорта декодеров
+    /// </summary>
+    public class NxDecoderPlugin
+    {
+        [ImportMany(typeof(IDataFrame), AllowRecomposition = true)]
+        public IEnumerable<Lazy<IDataFrame, IDataFrameMetadata>> DecoderModules;
+        public CompositionContainer HostContainer;
+        public NxDecoderPlugin()
+        {
+            var catalog = new AggregateCatalog(
+                new AssemblyCatalog(System.Reflection.Assembly.GetExecutingAssembly()),
+                new DirectoryCatalog(Path.Combine(Application.StartupPath, "Plugins"), "*.dll"),
+                new DirectoryCatalog(Application.StartupPath, "ScalesHubPlugin.dll")
+            );
+            HostContainer = new CompositionContainer(catalog);
+            try
+            {
+                HostContainer.ComposeParts(this);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine(ex.ToString());
+            }
+        }
     }
 }

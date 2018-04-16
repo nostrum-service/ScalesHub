@@ -99,9 +99,6 @@
     <Compile Include="ManualSourceControl.Designer.cs">
       <DependentUpon>ManualSourceControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Scales\NxDeviceState.cs" />
-    <Compile Include="Scales\DataFrameNVT1.cs" />
-    <Compile Include="Scales\DataFrame.cs" />
     <Compile Include="Scales\Scales.cs" />
     <Compile Include="Scales\SerialPortManager.cs" />
     <Compile Include="Scales\SerialSettings.cs" />
@@ -163,6 +160,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScalesHubPlugin\ScalesHubPlugin.csproj">
+      <Project>{ca699d08-2e12-4012-b80e-85f5a4f6c462}</Project>
+      <Name>ScalesHubPlugin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -24,9 +24,9 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=true
-OutputDir=E:\work\ScalesHub\InnoSetup
+OutputDir=C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\InnoSetup
 OutputBaseFilename=setup
-SetupIconFile=E:\work\ScalesHub\nostrum.ico
+SetupIconFile=C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\nostrum.ico
 Compression=lzma/Max
 SolidCompression=true
 VersionInfoCompany=Nostrum
@@ -40,53 +40,46 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:Ad
 Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked; OnlyBelowVersion: 0,6.1; Components: 
 
 [Files]
+Source: "C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\nostrum.ico"; DestDir: "{app}"; Flags: replacesameversion
 
-Source: E:\work\ScalesHub\nostrum.ico; DestDir: {app}; Flags: replacesameversion; 
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.BonusSkins.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.Data.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.Images.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.Office.v17.2.Core.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.Pdf.v17.2.Core.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.Printing.v17.2.Core.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.RichEdit.v17.2.Core.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.RichEdit.v17.2.Export.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.Sparkline.v17.2.Core.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.Utils.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.XtraBars.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.XtraEditors.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.XtraGrid.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.XtraLayout.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.XtraPrinting.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\DevExpress.XtraTreeList.v17.2.dll"; DestDir: "{app}"; Flags: replacesameversion
 
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Data.v14.2.dll; DestDir: {app}; Flags: replacesameversion; 
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.Data.v17.2.resources.dll"; DestDir: "{app}\ru"  
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.Office.v17.2.Core.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.Pdf.v17.2.Core.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.Printing.v17.2.Core.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.RichEdit.v17.2.Core.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.Sparkline.v17.2.Core.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.Utils.v17.2.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.XtraBars.v17.2.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.XtraEditors.v17.2.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.XtraGrid.v17.2.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.XtraLayout.v17.2.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.XtraPrinting.v17.2.resources.dll"; DestDir: "{app}\ru"
+Source: "C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework\ru\DevExpress.XtraTreeList.v17.2.resources.dll"; DestDir: "{app}\ru"
 
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.BonusSkins.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Utils.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Images.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraBars.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraEditors.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Sparkline.v14.2.Core.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraGrid.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraLayout.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraNavBar.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraTreeList.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.XtraPrinting.v14.2.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\DevExpress.Printing.v14.2.Core.dll; DestDir: {app}; Flags: replacesameversion; Components: 
-
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.Data.v14.2.resources.dll; DestDir: {app}\ru
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.Utils.v14.2.resources.dll; DestDir: {app}\ru
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.XtraBars.v14.2.resources.dll; DestDir: {app}\ru
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.XtraEditors.v14.2.resources.dll; DestDir: {app}\ru
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.XtraGrid.v14.2.resources.dll; DestDir: {app}\ru
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.XtraLayout.v14.2.resources.dll; DestDir: {app}\ru
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.XtraNavBar.v14.2.resources.dll; DestDir: {app}\ru
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.Printing.v14.2.Core.resources.dll; DestDir: {app}\ru 
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.XtraPrinting.v14.2.resources.dll; DestDir: {app}\ru
-
-Source: C:\Program Files (x86)\DevExpress 14.2\Components\Bin\Framework\ru\DevExpress.XtraTreeList.v14.2.resources.dll; DestDir: {app}\ru
-
-Source: E:\work\ScalesHub\ScalesHubConsole\bin\Release\LiteDB.dll; DestDir: {app}; Components: ; Flags: replacesameversion;
-Source: E:\work\ScalesHub\ScalesHubConsole\bin\Release\NLog.dll; DestDir: {app}; Components: ; Flags: replacesameversion;
-Source: E:\work\ScalesHub\ScalesHubConsole\bin\Release\Newtonsoft.Json.dll; DestDir: {app}; Components: ; Flags: replacesameversion;
-Source: E:\work\ScalesHub\ScalesHubConsole\bin\Release\ScalesHubConsole.exe; DestDir: {app}; Components: ; Flags: replacesameversion;
-Source: E:\work\ScalesHub\ScalesHubConsole\bin\Release\ScalesHubConsole.exe.config; DestDir: {app}; Components: ; Flags: onlyifdoesntexist; 
+Source: "C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\ScalesHubConsole\bin\Release\LiteDB.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\ScalesHubConsole\bin\Release\NLog.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\ScalesHubConsole\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\ScalesHubConsole\bin\Release\ScalesHubConsole.exe"; DestDir: "{app}"; Flags: replacesameversion
+Source: "C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\ScalesHubConsole\bin\Release\ScalesHubConsole.exe.config"; DestDir: "{app}"; Flags: onlyifdoesntexist
+Source: "C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\ScalesHubConsole\bin\Release\ScalesHubPlugin.dll"; DestDir: "{app}\Plugins"; Flags: replacesameversion
+Source: "C:\Users\melnikov\Documents\ScalesHub-master\ScalesHub-master\ScalesHubConsole\bin\Release\ScalesHubPlugin.dll"; DestDir: "{app}"; Flags: replacesameversion
 
 [Icons]
 Name: {group}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; WorkingDir: {app}; IconFilename: {app}\nostrum.ico; 
